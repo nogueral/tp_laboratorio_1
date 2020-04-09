@@ -37,7 +37,7 @@ int funcionMultiplicacion (int a, int b) {
     return resultado;
 }
 
-int funcionFactorial (int num) {
+ int funcionFactorial (int num) {
 
     int factorial=1;
     int i;
