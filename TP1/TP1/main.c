@@ -4,10 +4,11 @@
 
 int main()
 {
-    int opcion, operandoA, operandoB;
-    int suma, resta, multiplicacion;
-    int factorialA, factorialB;
-    float division;
+    int opcion;
+    float operandoA, operandoB;
+    float suma, resta, multiplicacion, division;
+    float factorialA, factorialB;
+    int validacionFactorialA, validacionFactorialB;
     int flagA=1, flagB=1, flagC=1;
 
     do {
@@ -16,12 +17,12 @@ int main()
        if(flagA==1){
            printf("\n1. Ingresar el 1er operando: ");
        } else {
-           printf("\n1. Ingresar el 1er operando: %d", operandoA);
+           printf("\n1. Ingresar el 1er operando: %f", operandoA);
        }
        if(flagB==1) {
             printf("\n2. Ingresar el 2do operando: ");
        } else {
-            printf("\n2. Ingresar el 2do operando: %d", operandoB);
+            printf("\n2. Ingresar el 2do operando: %f", operandoB);
        }
        if(flagC==1) {
             printf("\n3. Realizar todas las operaciones: ");
@@ -36,53 +37,65 @@ int main()
 
             case 1:
             printf("\nIngrese 1er operando: ");
-            scanf("%d", &operandoA);
+            scanf("%f", &operandoA);
             flagA=0;
             break;
 
             case 2:
             printf("\nIngrese 2do operando: ");
-            scanf("%d", &operandoB);
+            scanf("%f", &operandoB);
             flagB=0;
             break;
 
             case 3:
             suma = funcionSuma(operandoA, operandoB);
+
             resta = funcionResta(operandoA, operandoB);
+
             if (operandoB!=0) {
             division = funcionDivision(operandoA, operandoB);
             }
+
             multiplicacion = funcionMultiplicacion(operandoA, operandoB);
-            if(operandoA>-1) {
+
+            validacionFactorialA = validarFactorial(operandoA);
+            validacionFactorialB = validarFactorial(operandoB);
+
+            if(operandoA>-1 && validacionFactorialA==1) {
             factorialA = funcionFactorial(operandoA);
             }
-            if(operandoB>-1) {
+            if(operandoB>-1 && validacionFactorialB==1) {
             factorialB = funcionFactorial(operandoB);
             }
             flagC=0;
             break;
 
             case 4:
-            printf("\nEl resultado de %d + %d es %d", operandoA, operandoB, suma);
-            printf("\nEl resultado de %d - %d es %d", operandoA, operandoB, resta);
+            printf("\nEl resultado de %f + %f es %f", operandoA, operandoB, suma);
+
+            printf("\nEl resultado de %f - %f es %f", operandoA, operandoB, resta);
+
             if(operandoB==0) {
                 printf("\nNo es posible dividir por 0");
             } else {
-                printf("\nEl resultado de %d / %d es %f", operandoA, operandoB, division);
+                printf("\nEl resultado de %f / %f es %f", operandoA, operandoB, division);
             }
-            printf("\nEl resultado de %d * %d es %d", operandoA, operandoB, multiplicacion);
-            if(operandoA>-1 && operandoB>-1) {
-            printf("\nEl factorial de %d es %d y el factorial de %d es %d",
-            operandoA, factorialA, operandoB, factorialB);
+
+            printf("\nEl resultado de %f * %f es %f", operandoA, operandoB, multiplicacion);
+
+            if(operandoA>-1 && validacionFactorialA==1) {
+                printf("\nEl factorial de %f es %f", operandoA, factorialA);
+            } else {
+                printf("\nNo se puede calcular el factorial de numeros negativos o decimales. Error al ingresar %f", operandoA);
             }
-            if(operandoA<0) {
-                printf("\nNo se puede calcular el factorial de %d porque es negativo", operandoA);
-                printf("\nEl factorial de %d es %d", operandoB, factorialB);
+            if(operandoB>-1 && validacionFactorialB==1) {
+                printf("\nEl factorial de %f es %f", operandoB, factorialB);
+            } else {
+                printf("\nNo se puede calcular el factorial de numeros negativos o decimales. Error al ingresar %f", operandoB);
             }
-            if(operandoB<0) {
-                printf("\nEl factorial de %d es %d", operandoA, factorialA);
-                printf("\nNo se puede calcular el factorial de %d porque es negativo", operandoB);
-            }
+            flagA=1;
+            flagB=1;
+            flagC=1;
             break;
         }
 

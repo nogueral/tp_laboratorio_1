@@ -8,7 +8,7 @@
  * \return el resultado de la suma de los 2 parametros
  *
  */
-int funcionSuma (int, int);
+float funcionSuma (float, float);
 
 /** \brief calcula la resta de 2 parametros ingresados
  *
@@ -17,7 +17,7 @@ int funcionSuma (int, int);
  * \return el resultado de la resta de los 2 parametros
  *
  */
-int funcionResta (int, int);
+float funcionResta (float, float);
 
 /** \brief calcula la division entre 2 parametros ingresados
  *
@@ -26,7 +26,7 @@ int funcionResta (int, int);
  * \return el resultado de la division de los 2 parametros
  *
  */
-float funcionDivision (int, int);
+float funcionDivision (float, float);
 
 /** \brief calcula la multiplicacion entre 2 parametros ingresados
  *
@@ -35,7 +35,7 @@ float funcionDivision (int, int);
  * \return el resultado de la multiplicacion de los 2 parametros
  *
  */
-int funcionMultiplicacion (int, int);
+float funcionMultiplicacion (float, float);
 
 /** \brief calcula el factorial del parametro ingresado
  *
@@ -43,7 +43,14 @@ int funcionMultiplicacion (int, int);
  * \return el factorial del numero ingresado
  *
  */
-int funcionFactorial (int);
+float funcionFactorial (float);
 
+/** \brief valida si se puede calcular factorial en funcion de si el numero es entero o decimal.
+ *
+ * \param el parametro que se ingresa, siempre es flotante.
+ * \return si el numero es entero devuelve 1, si es decimal devuelve 0.
+ *
+ */
+float validarFactorial (float);
 
 #endif // FUNCIONES_H_INCLUDED

@@ -1,45 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int funcionSuma (int a, int b) {
+float funcionSuma (float a, float b) {
 
-    int resultado;
+    float resultado;
 
     resultado = a + b;
 
     return resultado;
 }
 
-int funcionResta (int a, int b) {
+float funcionResta (float a, float b) {
 
-    int resultado;
+    float resultado;
 
     resultado = a - b;
 
     return resultado;
 }
 
-float funcionDivision (int a, int b) {
+float funcionDivision (float a, float b) {
 
     float resultado;
 
-    resultado = (float) a / b;
+    resultado = a / b;
 
     return resultado;
 }
 
-int funcionMultiplicacion (int a, int b) {
+float funcionMultiplicacion (float a, float b) {
 
-    int resultado;
+    float resultado;
 
     resultado = a * b;
 
     return resultado;
 }
 
- int funcionFactorial (int num) {
+float funcionFactorial (float num) {
 
-    int factorial=1;
+    float factorial=1;
     int i;
 
 
@@ -52,3 +52,18 @@ int funcionMultiplicacion (int a, int b) {
    return factorial;
 }
 
+float validarFactorial (float a)
+{
+    int entero;
+    float resultado;
+    int factorial=0;
+
+    entero = a;
+    resultado = a - entero;
+
+    if(resultado==0) {
+        factorial=1;
+    }
+
+    return factorial;
+}
