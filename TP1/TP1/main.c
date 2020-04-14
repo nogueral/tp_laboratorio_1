@@ -17,12 +17,12 @@ int main()
        if(flagA==1){
            printf("\n1. Ingresar el 1er operando: ");
        } else {
-           printf("\n1. Ingresar el 1er operando: %f", operandoA);
+           printf("\n1. Ingresar el 1er operando: %.2f", operandoA);
        }
        if(flagB==1) {
             printf("\n2. Ingresar el 2do operando: ");
        } else {
-            printf("\n2. Ingresar el 2do operando: %f", operandoB);
+            printf("\n2. Ingresar el 2do operando: %.2f", operandoB);
        }
        if(flagC==1) {
             printf("\n3. Realizar todas las operaciones: ");
@@ -71,33 +71,36 @@ int main()
             break;
 
             case 4:
-            printf("\nEl resultado de %f + %f es %f", operandoA, operandoB, suma);
+            printf("\nEl resultado de %.2f + %.2f es %.2f", operandoA, operandoB, suma);
 
-            printf("\nEl resultado de %f - %f es %f", operandoA, operandoB, resta);
+            printf("\nEl resultado de %.2f - %.2f es %.2f", operandoA, operandoB, resta);
 
             if(operandoB==0) {
                 printf("\nNo es posible dividir por 0");
             } else {
-                printf("\nEl resultado de %f / %f es %f", operandoA, operandoB, division);
+                printf("\nEl resultado de %.2f / %.2f es %.2f", operandoA, operandoB, division);
             }
 
-            printf("\nEl resultado de %f * %f es %f", operandoA, operandoB, multiplicacion);
+            printf("\nEl resultado de %.2f * %.2f es %.2f", operandoA, operandoB, multiplicacion);
 
             if(operandoA>-1 && validacionFactorialA==1) {
-                printf("\nEl factorial de %f es %f", operandoA, factorialA);
+                printf("\nEl factorial de %.2f es %.2f", operandoA, factorialA);
             } else {
-                printf("\nNo se puede calcular el factorial de numeros negativos o decimales. Error al ingresar %f", operandoA);
+                printf("\nNo se puede calcular el factorial de numeros negativos o decimales. Error al ingresar %.2f", operandoA);
             }
             if(operandoB>-1 && validacionFactorialB==1) {
-                printf("\nEl factorial de %f es %f", operandoB, factorialB);
+                printf("\nEl factorial de %.2f es %.2f\n", operandoB, factorialB);
             } else {
-                printf("\nNo se puede calcular el factorial de numeros negativos o decimales. Error al ingresar %f", operandoB);
+                printf("\nNo se puede calcular el factorial de numeros negativos o decimales. Error al ingresar %.2f\n", operandoB);
             }
             flagA=1;
             flagB=1;
             flagC=1;
             break;
         }
+
+        system("pause");
+        system("cls");
 
     } while(opcion!=5);
 
