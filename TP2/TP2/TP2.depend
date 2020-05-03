@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1588522137 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp2\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+
+1588521555 c:\users\cx slim\desktop\tp_laboratorio_1\tp2\tp2\arrayemployees.h
+
+1588521385 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp2\tp2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayEmployees.h"
+
