@@ -1,21 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 #include "ArrayEmployees.h"
 
 int InitEmployees(Employee listadoEmpleados[], int tam)
 {
        int i;
        int retorno=-1;
-       int contador=0;
 
     for(i=0; i<tam; i++)
     {
         listadoEmpleados[i].isEmpty = LIBRE;
-        contador++;
     }
 
-    if(contador==tam)
+    if(tam<=1000)
     {
         retorno=0;
     }
@@ -158,6 +154,7 @@ int ModificarEmpleado (Employee listaEmpleados[], int len, int id)
     int valorDeRetorno=-1;
     int index;
     char respuesta;
+    char flagModifico='n';
 
     index = FindEmployeeByID(listaEmpleados, len, id);
 
@@ -168,6 +165,7 @@ int ModificarEmpleado (Employee listaEmpleados[], int len, int id)
         printf("\nDesea continuar? s/n: ");
         fflush(stdin);
         scanf("%c", &respuesta);
+        respuesta=tolower(respuesta);
         }while(respuesta!='s'&&respuesta!='n');
 
         if(respuesta=='s')
@@ -184,25 +182,35 @@ int ModificarEmpleado (Employee listaEmpleados[], int len, int id)
             printf("Ingrese nombre: ");
             fflush(stdin);
             gets(listaEmpleados[index].name);
+            flagModifico='s';
             break;
             case 2:
             printf("Ingrese apellido: ");
             fflush(stdin);
             gets(listaEmpleados[index].lastName);
+            flagModifico='s';
             break;
             case 3:
             printf("Ingrese salario: ");
             scanf("%f", &listaEmpleados[index].salary);
+            flagModifico='s';
             break;
             case 4:
             printf("Ingrese sector: ");
             scanf("%d",&listaEmpleados[index].sector);
+            flagModifico='s';
             break;
         }
 
         }while(opcion!=5);
 
-        valorDeRetorno=0;
+        if(flagModifico=='s')
+        {
+            valorDeRetorno=0;
+        } else {
+
+            valorDeRetorno=1;
+        }
 
     } else {
         valorDeRetorno=1;
@@ -215,18 +223,30 @@ int ModificarEmpleado (Employee listaEmpleados[], int len, int id)
 int RemoveEmployee (Employee listaEmpleados[], int len, int id)
 {
     int valorDeRetorno=-1;
+    char respuesta;
     int index;
 
     index = FindEmployeeByID(listaEmpleados, len, id);
 
     if(index!=-1)
     {
-        listaEmpleados[index].isEmpty=LIBRE;
-        printf("\nSe ha dado de baja el ID %d del empleado %s %s",
-               listaEmpleados[index].id,
-               listaEmpleados[index].name,
-               listaEmpleados[index].lastName);
-               valorDeRetorno=0;
+        do{
+        printf("\nEsta por eliminar el ID %d del empleado %s %s", listaEmpleados[index].id, listaEmpleados[index].name, listaEmpleados[index].lastName);
+        printf("\nDesea continuar? s/n: ");
+        fflush(stdin);
+        scanf("%c", &respuesta);
+        respuesta=tolower(respuesta);
+        }while(respuesta!='s'&&respuesta!='n');
+
+        if(respuesta=='s')
+        {
+            listaEmpleados[index].isEmpty=LIBRE;
+            valorDeRetorno=0;
+
+        } else {
+
+            valorDeRetorno=1;
+        }
     }
 
     return valorDeRetorno;
@@ -239,7 +259,7 @@ int SortEmployees(Employee listaEmpleados[], int len, int order)
     int retorno;
     Employee auxEmpleados;
 
-    if(order==1)
+    if(order==0)
     {
          for(i=0; i<len-1; i++)
     {
@@ -278,7 +298,7 @@ int SortEmployees(Employee listaEmpleados[], int len, int order)
     retorno=0;
     }
 
-    if(order==0)
+    if(order==1)
     {
           for(i=0; i<len-1; i++)
     {

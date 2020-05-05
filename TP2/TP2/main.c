@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "ArrayEmployees.h"
 
 int main()
@@ -16,17 +15,17 @@ int main()
     float promedio;
     int contador;
 
-    //HardcodeoEmpleados(listadoEmpleados);
-
     retorno=InitEmployees(listadoEmpleados, TAM);
     if(retorno==0)
     {
-        printf("El sistema esta listo para operar\n");
+        printf("\nEl programa esta listo para operar\n");
 
     } else {
 
-        printf("Error! Verificar los datos ingresados\n");
+        printf("\nError! Invalid length\n");
     }
+
+    HardcodeoEmpleados(listadoEmpleados);
 
      do{
         opcion=MostrarMenu();
@@ -87,6 +86,9 @@ int main()
                         case 0:
                         printf("\nOperacion realizada con exito\n");
                         break;
+                        case 1:
+                        printf("\nNo se modificaron los datos, operacion cancelada\n");
+                        break;
                         case -1:
                         printf("\nID inexistente\n");
                         break;
@@ -106,13 +108,13 @@ int main()
                 if(listadoEmpleados[i].isEmpty==OCUPADO)
                 {
                     printf("\nSeleccione: ");
-                    printf("\n1. Listado de los empleados ordenados alfabéticamente por Apellido y Sector.");
+                    printf("\n1. Listado de los empleados ordenados alfabeticamente por Apellido y Sector.");
                     printf("\n2. Total y promedio de los salarios, y cuantos empleados superan el salario promedio.\n");
                     scanf("%d", &print);
                     switch(print)
                     {
                         case 1:
-                        printf("\nSeleccione el tipo de ordenamiento: \n 0 - Ascendente: \n 1 - Descendente: \n");
+                        printf("\nSeleccione el tipo de ordenamiento: \n 0 - Descendente: \n 1 - Ascendente: \n");
                         scanf("%d", &order);
                         retorno=SortEmployees(listadoEmpleados, TAM, order);
                         switch(retorno)
@@ -121,7 +123,7 @@ int main()
                         printf("\nOrdenamiento realizado con exito\n");
                         break;
                         case -1:
-                        printf("\nIngreso una opcion erronea\n");
+                        printf("\nIngreso una opcion erronea, no se realizo el ordenamiento\n");
                         break;
                         }
                         retorno=PrintEmployees(listadoEmpleados, TAM);
@@ -132,7 +134,7 @@ int main()
                         promedio=CalculoPromedio(listadoEmpleados);
                         printf("\nEl promedio de salarios es: %.2f", promedio);
                         contador=ContadorPromedio(listadoEmpleados);
-                        printf("\nLa cantidad de personas que superan el promedio de salarios es: %d", contador);
+                        printf("\nLa cantidad de personas que superan el promedio de salarios es: %d \n", contador);
                         break;
                     }
 

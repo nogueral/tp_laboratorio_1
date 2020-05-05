@@ -1,5 +1,9 @@
 #ifndef ARRAYEMPLOYEES_H_INCLUDED
 #define ARRAYEMPLOYEES_H_INCLUDED
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #define TAM 1000
 #define LIBRE 1
 #define OCUPADO 0
@@ -49,7 +53,7 @@ int MostrarMenu(void);
  */
 int BuscarLibre(Employee[]);
 
-/** \brief Genera automaticamente un numero de ID
+/** \brief Genera automaticamente un numero de ID de forma autoincremental
  *
  * \param void
  * \return int devuelve un numero entero
@@ -57,7 +61,7 @@ int BuscarLibre(Employee[]);
  */
 int GenerateId(void);
 
-/** \brief Efectua la carga de un empleado en  otras variables para subirlas a AddEmployees
+/** \brief Efectua la carga de un empleado en variables complementarias para subirlas a AddEmployees
  *
  * \param Employee[]
  * \param int
@@ -105,7 +109,7 @@ int ModificarEmpleado (Employee listaEmpleados[], int len, int id);
 * \param len int
 * \param id int
 * \return int Return (-1) if Error [Invalid length or NULL pointer or if can't
-find a employee] - (0) if Ok
+find a employee] - (0) if Ok - (1) if the operation has been cancelled by user
 *
 */
 int RemoveEmployee (Employee listaEmpleados[], int len, int id);
@@ -117,7 +121,7 @@ indicate UP or DOWN order
 * \param len int
 * \param order int [1] indicate UP - [0] indicate DOWN
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
-*
+* (1) if the operation has been cancelled by use
 */
 int SortEmployees(Employee[], int, int);
 
