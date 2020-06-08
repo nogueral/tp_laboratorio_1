@@ -256,3 +256,50 @@
 
 1561499216 c:\users\cx slim\desktop\tp3\controller.h
 
+1591656734 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"funciones.h"
+
+1591658755 c:\users\cx slim\desktop\tp_laboratorio_1\tp3\linkedlist.h
+
+1591658755 c:\users\cx slim\desktop\tp_laboratorio_1\tp3\employee.h
+
+1591647310 c:\users\cx slim\desktop\tp_laboratorio_1\tp3\parser.h
+
+1591647310 c:\users\cx slim\desktop\tp_laboratorio_1\tp3\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1591656523 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp3\employee.c
+	<stdlib.h>
+	"Employee.h"
+	<string.h>
+
+1591644162 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp3\funciones.c
+	"funciones.h"
+
+1591648292 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"funciones.h"
+
+1591660463 c:\users\cx slim\desktop\tp_laboratorio_1\tp3\controller.h
+
+1591645810 source:c:\users\cx slim\desktop\tp_laboratorio_1\tp3\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+
