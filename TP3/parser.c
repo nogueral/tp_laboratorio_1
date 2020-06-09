@@ -42,7 +42,6 @@ int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
     Employee auxEmpleado;
     Employee* pEmpleado;
     int i;
-    int contador=0;
     int len;
     int aux;
     int retorno=0;
@@ -73,7 +72,6 @@ int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
 
                 ll_add(pArrayListEmployee, pEmpleado);
 
-                contador++;
             }
         }
 
