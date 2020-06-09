@@ -97,6 +97,12 @@ int parser_AsignarID (LinkedList* pArrayListEmployee, int* idNumber)
 
     len = ll_len(pArrayListEmployee);
 
+    if(len==0)
+    {
+        *idNumber=1;
+
+    } else {
+
     for(i=0; i<len; i++)
     {
         AuxEmpleado = ll_get(pArrayListEmployee, i);
@@ -113,7 +119,7 @@ int parser_AsignarID (LinkedList* pArrayListEmployee, int* idNumber)
     retorno=1;
 
     }
-
+    }
     return retorno;
 
 }
