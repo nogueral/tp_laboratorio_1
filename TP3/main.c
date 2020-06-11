@@ -34,7 +34,7 @@ int main()
 
 
     do{
-        opcion=MostrarMenu();
+        opcion=MenuPrincipal();
 
         switch(opcion)
         {
@@ -126,7 +126,15 @@ int main()
         retorno = controller_ListEmployee(listaEmpleados);
         if(retorno==1)
         {
-            printf("Impresion realizada con exito!\n");
+            if(len!=0)
+            {
+               printf("Impresion realizada con exito!\n");
+
+            } else {
+
+               printf("Aun no hay datos cargados!\n");
+            }
+
 
         } else {
 

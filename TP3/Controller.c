@@ -88,6 +88,8 @@ return retorno;
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
     int auxID;
+    int id;
+    char auxNombre[50];
     char nombre[50];
     int horasTrabajadas;
     int sueldo;
@@ -106,16 +108,16 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
         for(i=0; i<len; i++)
         {
             auxEmpleado=ll_get(pArrayListEmployee, i);
+            employee_getId(auxEmpleado, &id);
 
-            if(auxID == auxEmpleado->id)
+            if(auxID == id)
             {
+                employee_getNombre(auxEmpleado, auxNombre);
                 printf("Esta por modificar el id %d del empleado %s\n",
-                auxEmpleado->id, auxEmpleado->nombre);
+                id, auxNombre);
 
                 do{
-                    printf("1. Nombre: \n2. Hs trabajadas: \n3.Sueldo: \n4. Salir: \n");
-                    printf("Ingrese el dato a modificar: ");
-                    scanf("%d", &opcion);
+                    opcion = MostrarMenu("1. Nombre: \n2. Hs trabajadas: \n3.Sueldo: \n4. Salir: \nSeleccione una opcion: ");
 
                     switch(opcion)
                     {
@@ -163,6 +165,8 @@ return retorno;
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int auxID;
+    char auxNombre[50];
+    int id;
     int i;
     int len;
     Employee* auxEmpleado;
@@ -179,11 +183,13 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
         for(i=0; i<len; i++)
         {
             auxEmpleado=ll_get(pArrayListEmployee, i);
+            employee_getId(auxEmpleado, &id);
 
-            if(auxID==auxEmpleado->id)
+            if(auxID == id)
             {
+                employee_getNombre(auxEmpleado, auxNombre);
                 printf("Esta por eliminar el id %d del empleado %s",
-                       auxEmpleado->id, auxEmpleado->nombre);
+                       id, auxNombre);
 
                 respuesta = ConfirmarOperacion();
 
@@ -261,8 +267,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                                  "\nError, seleccione 1 ascendente o 0 descendente: ", 0, 1);
         do{
 
-            printf("1. ID\n2. Nombre\n3. Horas trabajadas\n4. Sueldo\n5. Salir\nSeleccione la opcion deseada: ");
-            scanf("%d", &opcion);
+            opcion = MostrarMenu("1. ID\n2. Nombre\n3. Horas trabajadas\n4. Sueldo\n5. Salir\nSeleccione la opcion deseada: ");
 
             switch(opcion)
             {
@@ -320,7 +325,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
     pArchivo = fopen(path, "w");
     len = ll_len(pArrayListEmployee);
 
-    if(pArchivo!=NULL && pArrayListEmployee!=NULL && len!=0)
+    if(pArchivo!=NULL && pArrayListEmployee!=NULL && len!=0 && path!=NULL)
     {
         fprintf(pArchivo, "id, nombre, horasTrabajadas, sueldo\n");
 
@@ -358,7 +363,7 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
     pArchivo = fopen(path, "wb");
     len = ll_len(pArrayListEmployee);
 
-    if(pArchivo!=NULL && pArrayListEmployee!=NULL && len!=0)
+    if(pArchivo!=NULL && pArrayListEmployee!=NULL && len!=0 && path!=NULL)
     {
         fwrite(&len, sizeof(int), 1, pArchivo);
         printf("Cantidad de archivos a guardar: %d\n", len);

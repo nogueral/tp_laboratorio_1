@@ -18,7 +18,7 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 
     auxEmpleado = employee_new();
 
-    if(auxEmpleado!=NULL)
+    if(auxEmpleado!=NULL && idStr!=NULL && nombreStr!=NULL && horasTrabajadasStr!=NULL && sueldoStr!= NULL)
     {
        employee_setId(auxEmpleado, atoi(idStr));
        employee_setNombre(auxEmpleado, nombreStr);
@@ -40,7 +40,7 @@ int employee_setNombre(Employee* this,char* nombre)
 {
     int retorno=0;
 
-    if(this!=NULL)
+    if(this!=NULL && nombre!=NULL)
     {
         strlwr(nombre);
         strcpy(this->nombre, nombre);
@@ -83,7 +83,7 @@ int employee_getSueldo(Employee* this,int* sueldo)
 {
     int retorno=0;
 
-    if(this!=NULL && *sueldo > 0)
+    if(this!=NULL && sueldo!=NULL)
     {
         *sueldo = this->sueldo;
         retorno = 1;
@@ -111,7 +111,7 @@ int employee_getId(Employee* this,int* id)
 {
     int retorno=0;
 
-    if(this!=NULL && *id > 0)
+    if(this!=NULL && id!=NULL)
     {
         *id = this->id;
         retorno = 1;
@@ -138,7 +138,7 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
     int retorno=0;
 
-    if(this!=NULL && *horasTrabajadas > 0)
+    if(this!=NULL && horasTrabajadas!=NULL)
     {
         *horasTrabajadas = this->horasTrabajadas;
         retorno = 1;

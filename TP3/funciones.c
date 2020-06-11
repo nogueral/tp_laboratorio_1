@@ -1,5 +1,5 @@
 #include "funciones.h"
-int MostrarMenu(void)
+int MenuPrincipal(void)
 {
     int opcion;
 
@@ -16,6 +16,16 @@ int MostrarMenu(void)
     printf("\n9. Guardar los datos de los empleados en el archivo data.dat (modo binario).");
     printf("\n10. Salir");
     printf("\n*****************************************************/\n");
+    scanf("%d", &opcion);
+
+    return opcion;
+}
+
+int MostrarMenu(char* texto)
+{
+    int opcion;
+
+    printf(texto);
     scanf("%d", &opcion);
 
     return opcion;

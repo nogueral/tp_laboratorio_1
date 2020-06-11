@@ -9,7 +9,15 @@
  * \return int devuelve un entero (seleccion usuario)
  *
  */
-int MostrarMenu(void);
+int MenuPrincipal(void);
+
+/** \brief Muestra un menu de opciones
+ *
+ * \param texto char*
+ * \return int
+ *
+ */
+int MostrarMenu(char* texto);
 
 /** \brief Efectua la carga de una cadena de caracteres
  *
