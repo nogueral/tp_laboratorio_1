@@ -184,6 +184,16 @@ int main()
 
     }while(opcion!=10);
 
+    retorno = ll_deleteLinkedList(listaEmpleados);
+    if(retorno==0)
+    {
+        printf("Se ha eliminados la lista de empleados");
+
+    } else {
+
+        printf("Error al procesar");
+    }
+
 
     return 0;
 }
