@@ -223,18 +223,11 @@ int ll_set(LinkedList* this, int index,void* pElement)
 
     if(this!=NULL && index>=0 && index<ll_len(this))
     {
-        if(index==ll_len(this))
-        {
-            ll_add(this, pElement);
-            returnAux = 0;
-
-        } else {
 
             actual = getNode(this, index);
             actual->pElement = pElement;
             returnAux = 0;
 
-        }
     }
 
 
