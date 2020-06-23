@@ -226,6 +226,7 @@ int ll_set(LinkedList* this, int index,void* pElement)
 
             actual = getNode(this, index);
             actual->pElement = pElement;
+
             returnAux = 0;
 
     }
@@ -514,7 +515,7 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 
         }
 
-        if(contador==this2->size)
+        if(contador==ll_len(this2))
         {
             returnAux = 1;
 
